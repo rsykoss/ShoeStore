@@ -8,6 +8,11 @@
   <!-- To save as "ebookshop\WEB-INF\web.xml" -->
  
   <servlet>
+    <servlet-name>CategoryQuery</servlet-name>
+    <servlet-class>CategoryQueryServlet</servlet-class>
+  </servlet>
+
+  <servlet>
     <servlet-name>KickersQuery</servlet-name>
     <servlet-class>QueryServlet</servlet-class>
   </servlet>
@@ -42,6 +47,11 @@
 </servlet>
   <!-- Note: All <servlet> elements must be placed
        in front of <servlet-mapping> elements -->
+ 
+  <servlet-mapping>
+    <servlet-name>CategoryQuery</servlet-name>
+    <url-pattern>/categoryquery</url-pattern>
+  </servlet-mapping>
  
   <servlet-mapping>
     <servlet-name>KickersQuery</servlet-name>
