@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app version="3.0"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+    metadata-complete="true">
+ 
+  <!-- To save as "ebookshop\WEB-INF\web.xml" -->
+ 
+  <servlet>
+    <servlet-name>KickersQuery</servlet-name>
+    <servlet-class>QueryServlet</servlet-class>
+  </servlet>
+ 
+  <servlet>
+    <servlet-name>KickersQueryMultiValue</servlet-name>
+    <servlet-class>QueryMultiValueServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+  <servlet-name>KickersQueryMultiParam</servlet-name>
+  <servlet-class>QueryMultiParamServlet</servlet-class>
+</servlet>
+ 
+ 
+  <servlet>
+  <servlet-name>KickersQueryMultiParamValue</servlet-name>
+  <servlet-class>QueryMultiParamValueServlet</servlet-class>
+</servlet>
+
+<servlet>
+  <servlet-name>KickersQueryPost</servlet-name>
+  <servlet-class>QueryPostServlet</servlet-class>
+</servlet>
+<servlet>
+  <servlet-name>KickersQuery</servlet-name>
+  <servlet-class>KickersQueryServlet</servlet-class>
+</servlet>
+<servlet>
+  <servlet-name>KickersOrder</servlet-name>
+  <servlet-class>KickersOrderServlet</servlet-class>
+</servlet>
+  <!-- Note: All <servlet> elements must be placed
+       in front of <servlet-mapping> elements -->
+ 
+  <servlet-mapping>
+    <servlet-name>KickersQuery</servlet-name>
+    <url-pattern>/query</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet-mapping>
+    <servlet-name>KickersQueryMultiValue</servlet-name>
+    <url-pattern>/querymv</url-pattern>
+  </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>KickersQueryMultiParam</servlet-name>
+  <url-pattern>/querymp</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+  <servlet-name>KickersQueryMultiParamValue</servlet-name>
+  <url-pattern>/querymvp</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+  <servlet-name>KickersQueryPost</servlet-name>
+  <url-pattern>/querypost</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+  <servlet-name>KickersQuery</servlet-name>
+  <url-pattern>/kickersquery</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+  <servlet-name>KickersOrder</servlet-name>
+  <url-pattern>/kickersorder</url-pattern>
+</servlet-mapping>
+
+</web-app>
