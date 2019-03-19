@@ -29,29 +29,29 @@ public class KickersOrderServlet extends HttpServlet {  // JDK 6 and above only
          // Step 3: Execute a SQL SELECT query
           out.println("<html><head><title>Order Results</title></head><body>");
 
-         // Retrieve the books' id. Can order more than one books.
+         // Retrieve the shoes' id. Can order more than one shoes.
          String[] ids = request.getParameterValues("id");
          if (ids != null) {
             String sqlStr;
             int count;
       
-            // Process each of the books
+            // Process each of the shoes
             for (int i = 0; i < ids.length; ++i) {
-                     // Update the qty of the table books
-                     sqlStr = "UPDATE books SET qty = qty - 1 WHERE id = " + ids[i];
+                     // Update the qty of the table shoes
+                     sqlStr = "UPDATE shoes SET qty = qty - 1 WHERE id = " + ids[i];
                      out.println("<p>" + sqlStr + "</p>");  // for debugging
                      count = stmt.executeUpdate(sqlStr);
                      out.println("<p>" + count + " record updated.</p>");
 
-                     String[] files = request.getParameterValues("fileToUpload"); //file upload
-                     if (files != null){
-                        String fileString = files[i]; //assuming can only upload one file
-                        out.println("<p>The file was uploaded: " + fileString + "</p>");
-                        fileString = "INSERT INTO files (id, image) VALUES("+ ids[i] + ", LOAD_FILE('C:/Users/iisonya/Downloads/"+ fileString +"'))";
-                        out.println("<p>" + fileString + "</p>");
-                        count = stmt.executeUpdate(fileString);
-                       out.println("<p>" + count + " record inserted.</p>");
-                     } else out.println("<p>The file was NOT uploaded </p>");
+                     // String[] files = request.getParameterValues("fileToUpload"); //file upload
+                     // if (files != null){
+                     //    String fileString = files[i]; //assuming can only upload one file
+                     //    out.println("<p>The file was uploaded: " + fileString + "</p>");
+                     //    fileString = "INSERT INTO files (id, image) VALUES("+ ids[i] + ", LOAD_FILE('C:/Users/iisonya/Downloads/"+ fileString +"'))";
+                     //    out.println("<p>" + fileString + "</p>");
+                     //    count = stmt.executeUpdate(fileString);
+                     //   out.println("<p>" + count + " record inserted.</p>");
+                     // } else out.println("<p>The file was NOT uploaded </p>");
 
                      // Create a transaction record
                      sqlStr = "INSERT INTO order_records (id, qty_ordered) VALUES ("
@@ -59,7 +59,7 @@ public class KickersOrderServlet extends HttpServlet {  // JDK 6 and above only
                      out.println("<p>" + sqlStr + "</p>");  // for debugging
                      count = stmt.executeUpdate(sqlStr);
                      out.println("<p>" + count + " record inserted.</p>");
-                     out.println("<h3>Your order for book id=" + ids[i]
+                     out.println("<h3>Your order for shoes id=" + ids[i]
                            + " has been confirmed.</h3>");
             }
             out.println("<h3>Thank you.<h3>");
